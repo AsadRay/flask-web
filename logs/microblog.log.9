@@ -1,0 +1,88 @@
+2025-06-30 11:09:26,771 ERROR: Exception on /index [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 28, in index
+    if form.validate_on_submit():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FlaskForm.validate_on_submit() missing 1 required positional argument: 'self'
+2025-06-30 11:09:28,782 ERROR: Failed to send error email: The current application was not configured with Flask-Mail [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
+2025-06-30 11:14:28,818 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 11:56:53,926 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 11:57:45,611 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:34:57,197 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:34:57,213 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:34:57,213 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:01,264 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:01,276 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:01,276 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:14,035 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:14,047 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:35:14,047 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:36:40,288 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:36:40,303 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:36:40,303 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:37:14,480 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:37:14,493 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:37:14,493 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:37:44,611 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:54:50,286 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 16:54:52,629 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 54, in index
+    return render_template("index.html", title='Home Page', form=form,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 23, in top-level template code
+    <a href="{{ url_for('logout') }}">Logout</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'logout'. Did you mean 'login' instead?
+2025-06-30 17:05:42,226 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-06-30 17:05:50,827 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]

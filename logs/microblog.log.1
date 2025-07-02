@@ -1,0 +1,97 @@
+2025-07-01 12:27:32,616 ERROR: Exception on /user/Asaduzzaman Rayhan [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 115, in user
+    return render_template('user.html', user=user, posts=posts.items,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 58, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/user.html", line 22, in block 'content'
+    <strong>Followers:</strong> {{ user.followers.count() }} &nbsp; | &nbsp;
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'sqlalchemy.orm.writeonly.WriteOnlyCollection object' has no attribute 'count'
+2025-07-01 12:27:36,037 ERROR: Failed to send error email: argument of type 'NoneType' is not iterable [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
+2025-07-01 12:28:13,023 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 12:29:21,728 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 12:31:46,411 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 12:49:23,972 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 12:55:43,077 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 13:00:28,579 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 13:23:26,554 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 15:52:10,653 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 15:57:16,908 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 16:37:07,439 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-01 16:45:31,558 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+2025-07-02 10:25:02,616 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
+2025-07-02 10:27:30,789 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
+2025-07-02 10:27:32,641 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 59, in index
+    return render_template("index.html", title='Home Page', form=form,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 79, in top-level template code
+    {{ moment.tz('Asia/Dhaka') }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'type object' has no attribute 'tz'
+2025-07-02 10:27:35,624 ERROR: Failed to send error email: argument of type 'NoneType' is not iterable [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
+2025-07-02 10:30:45,696 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
