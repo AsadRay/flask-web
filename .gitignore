@@ -1,1 +1,62 @@
-.config.py
+# Byte-compiled / optimized / DLL files
+__pycache__
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Flask instance folder (if used to store config or secrets)
+instance/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Flask specific files
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# IDE/editor config files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS files
+.DS_Store
+
+# Environment variable files
+.env
+
+# Pipenv
+Pipfile.lock
+
+# mypy cache
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# celery beat schedule files
+celerybeat-schedule
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# pytest cache
+.pytest_cache/
+
+elasticsearch-9.0.0

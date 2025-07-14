@@ -1,4 +1,54 @@
-2025-07-01 10:52:10,218 ERROR: Exception on /index [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+2025-07-13 10:50:40,243 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:50:40,262 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:50:40,396 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:50:40,446 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:50:54,370 ERROR: Exception on /search [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
+    response = self.pool.urlopen(
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x72c687399e20>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,83 +65,31 @@ Traceback (most recent call last):
   File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 59, in index
-    return render_template("index.html", title='Home Page', form=form,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 30, in template
-    {% block content %}
-jinja2.exceptions.TemplateAssertionError: block 'content' defined twice
-2025-07-01 10:52:12,696 ERROR: Failed to send error email: argument of type 'NoneType' is not iterable [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
-2025-07-01 10:54:29,312 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 10:57:00,847 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 10:58:06,456 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:07:06,330 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:08:54,997 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:11:35,233 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:12:10,453 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:14:02,792 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:14:07,567 ERROR: Exception on /user/Asaduzzaman Rayhan [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 115, in user
-    return render_template('user.html', user=user, posts=posts.items,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 58, in top-level template code
-    {% block content %}{% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/user.html", line 8, in block 'content'
-    <h1>{{ _('User') }}: {{ user.username }}</h1>
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
-    if hasattr(obj, "jinja_pass_arg"):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: '_' is undefined
-2025-07-01 12:14:11,422 ERROR: Failed to send error email: argument of type 'NoneType' is not iterable [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
-2025-07-01 12:14:25,845 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:17:22,498 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 12:27:18,009 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+  File "/home/asaduzzaman-rayhan/microblog/app/main/routes.py", line 174, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/models.py", line 28, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/search.py", line 19, in query_index
+    search = current_app.elasticsearch.search(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+    return api(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/__init__.py", line 3674, in search
+    return self.perform_request(  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_transport.py", line 342, in perform_request
+    resp = node.perform_request(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
+    raise err from e
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x72c6873992e0>: Failed to establish a new connection: [Errno 111] Connection refused))
+2025-07-13 10:51:36,465 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:51:36,537 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:51:36,667 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:51:36,668 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]

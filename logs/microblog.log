@@ -1,44 +1,50 @@
-2025-07-02 10:30:47,330 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 59, in index
-    return render_template("index.html", title='Home Page', form=form,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 79, in top-level template code
-    {{ moment.tz('Asia/Dhaka') }}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
-    if hasattr(obj, "jinja_pass_arg"):
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'type object' has no attribute 'tz'
-2025-07-02 10:30:50,261 ERROR: Failed to send error email: argument of type 'NoneType' is not iterable [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
-2025-07-02 10:31:07,924 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
-2025-07-02 10:31:50,757 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
-2025-07-02 10:32:17,153 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
-2025-07-02 10:59:18,795 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:42]
+2025-07-13 11:40:52,562 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '11', '_version': 10, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 182, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
+2025-07-13 11:44:52,684 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:48:34,700 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:48:34,793 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:48:34,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:48:34,961 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:48:41,452 WARNING: Tried to delete non-existent document ID 10 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
+2025-07-13 11:49:42,013 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:51:33,244 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:51:33,290 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:51:33,463 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:51:33,489 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:51:40,263 WARNING: Tried to delete non-existent document ID 3 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
+2025-07-13 11:51:46,894 WARNING: Tried to delete non-existent document ID 2 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
+2025-07-13 11:52:08,459 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:52:08,462 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:52:08,655 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:52:08,662 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:53:17,682 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:55:26,966 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:56:36,745 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:56:36,852 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:56:36,968 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:56:36,994 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 11:57:50,131 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:38:10,636 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:40:13,001 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:45:49,536 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:46:53,747 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:47:52,319 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:47:52,333 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:47:52,453 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 12:47:52,477 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:32:42,786 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:32:42,894 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:32:43,076 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:32:43,077 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:33:18,110 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 16:34:49,265 WARNING: Tried to delete non-existent document ID 13 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
+2025-07-14 09:46:43,919 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:46:43,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:46:43,919 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:46:43,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:48:54,513 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:49:38,217 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:49:56,698 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:49:56,746 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:49:56,872 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:49:56,879 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 09:50:45,950 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]

@@ -1,0 +1,268 @@
+# Bangla translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-07-07 16:44+0600\n"
+"PO-Revision-Date: 2025-07-02 13:03+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: bn\n"
+"Language-Team: bn <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/__init__.py:18
+msgid "Please log in to access this page."
+msgstr ""
+
+#: app/translate.py:8
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: app/translate.py:30
+msgid "Error: the translation service failed."
+msgstr ""
+
+#: app/auth/forms.py:11 app/auth/forms.py:18 app/main/forms.py:12
+#, fuzzy
+msgid "Username"
+msgstr ""
+
+#: app/auth/forms.py:12 app/auth/forms.py:20 app/auth/forms.py:45
+#, fuzzy
+msgid "Password"
+msgstr ""
+
+#: app/auth/forms.py:13
+msgid "Remember Me"
+msgstr ""
+
+#: app/auth/forms.py:14 app/auth/routes.py:30 app/templates/auth/login.html:5
+msgid "Sign In"
+msgstr ""
+
+#: app/auth/forms.py:19 app/auth/forms.py:40
+msgid "Email"
+msgstr ""
+
+#: app/auth/forms.py:22 app/auth/forms.py:47
+#, fuzzy
+msgid "Repeat Password"
+msgstr ""
+
+#: app/auth/forms.py:24 app/auth/routes.py:51
+#: app/templates/auth/register.html:5
+msgid "Register"
+msgstr ""
+
+#: app/auth/forms.py:30 app/main/forms.py:26
+msgid "Please use a different username."
+msgstr ""
+
+#: app/auth/forms.py:36
+msgid "Please use a different email address."
+msgstr ""
+
+#: app/auth/forms.py:41 app/auth/forms.py:49
+msgid "Request Password Reset"
+msgstr ""
+
+#: app/auth/routes.py:23
+msgid "Invalid username or password"
+msgstr ""
+
+#: app/auth/routes.py:49
+msgid "Congratulations, you are now a registered user!"
+msgstr ""
+
+#: app/auth/routes.py:66
+msgid "Check your email for the instructions to reset your password"
+msgstr ""
+
+#: app/auth/routes.py:69 app/templates/auth/reset_password.html:5
+msgid "Reset Password"
+msgstr ""
+
+#: app/auth/routes.py:83
+msgid "Your password has been reset."
+msgstr ""
+
+#: app/main/forms.py:13
+msgid "About me"
+msgstr ""
+
+#: app/main/forms.py:15 app/main/forms.py:36
+msgid "Submit"
+msgstr ""
+
+#: app/main/forms.py:34
+msgid "Say something"
+msgstr ""
+
+#: app/main/forms.py:39 app/main/routes.py:168
+msgid "Search"
+msgstr ""
+
+#: app/main/routes.py:39
+msgid "Your post is now live!"
+msgstr ""
+
+#: app/main/routes.py:49 app/templates/base.html:36
+msgid "Home"
+msgstr ""
+
+#: app/main/routes.py:66 app/templates/base.html:39
+msgid "Explore"
+msgstr ""
+
+#: app/main/routes.py:97
+msgid "Your changes have been saved."
+msgstr ""
+
+#: app/main/routes.py:102 app/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr ""
+
+#: app/main/routes.py:114 app/main/routes.py:135
+#, python-format
+msgid "User %(username)s not found."
+msgstr ""
+
+#: app/main/routes.py:117
+msgid "You cannot follow yourself!"
+msgstr ""
+
+#: app/main/routes.py:121
+#, python-format
+msgid "You are following %(username)s!"
+msgstr ""
+
+#: app/main/routes.py:138
+msgid "You cannot unfollow yourself!"
+msgstr ""
+
+#: app/main/routes.py:142
+#, python-format
+msgid "You are not following %(username)s."
+msgstr ""
+
+#: app/templates/_post.html:14
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr ""
+
+#: app/templates/_post.html:25
+msgid "Translate"
+msgstr ""
+
+#: app/templates/base.html:9
+msgid "Welcome to CHITCHAT"
+msgstr ""
+
+#: app/templates/base.html:52
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:56
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:59
+msgid "Logout"
+msgstr ""
+
+#: app/templates/index.html:5
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr ""
+
+#: app/templates/index.html:16 app/templates/search.html:12
+#: app/templates/user.html:41
+msgid "Newer posts"
+msgstr ""
+
+#: app/templates/index.html:21 app/templates/search.html:17
+#: app/templates/user.html:46
+msgid "Older posts"
+msgstr ""
+
+#: app/templates/search.html:4
+msgid "Search Results"
+msgstr ""
+
+#: app/templates/user.html:8
+msgid "User"
+msgstr ""
+
+#: app/templates/user.html:11
+msgid "Last seen on"
+msgstr ""
+
+#: app/templates/user.html:13
+#, python-format
+msgid "%(count)d followers"
+msgstr ""
+
+#: app/templates/user.html:13
+#, python-format
+msgid "%(count)d following"
+msgstr ""
+
+#: app/templates/user.html:15
+msgid "Edit your profile"
+msgstr ""
+
+#: app/templates/user.html:20
+msgid "Follow"
+msgstr ""
+
+#: app/templates/user.html:27
+msgid "Unfollow"
+msgstr ""
+
+#: app/templates/auth/login.html:7
+msgid "New User?"
+msgstr ""
+
+#: app/templates/auth/login.html:7
+msgid "Click to Register!"
+msgstr ""
+
+#: app/templates/auth/login.html:9
+msgid "Forgot Your Password?"
+msgstr ""
+
+#: app/templates/auth/login.html:10
+msgid "Click to Reset It"
+msgstr ""
+
+#: app/templates/auth/reset_password_request.html:5
+msgid "Reset Your Password"
+msgstr ""
+
+#: app/templates/errors/404.html:4
+msgid "Not Found"
+msgstr ""
+
+#: app/templates/errors/404.html:5 app/templates/errors/500.html:6
+msgid "Back"
+msgstr ""
+
+#: app/templates/errors/500.html:4
+msgid "An unexpected error has occurred"
+msgstr ""
+
+#: app/templates/errors/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr ""
+
+#~ msgid "%(username)s Posted %(when)s"
+#~ msgstr ""
+

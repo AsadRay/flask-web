@@ -1,116 +1,53 @@
-2025-06-30 09:44:25,435 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 285, in decorated_view
-    return current_app.login_manager.unauthorized()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/login_manager.py", line 196, in unauthorized
-    redirect_url = make_login_url(login_view, next_url=request.url)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 120, in login_url
-    base = expand_login_view(login_view)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 97, in expand_login_view
-    return url_for(login_view)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/helpers.py", line 232, in url_for
-    return current_app.url_for(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'login'. Did you mean 'logout' instead?
-2025-06-30 09:44:29,245 ERROR: Failed to send error email: The current application was not configured with Flask-Mail [in /home/asaduzzaman-rayhan/microblog/app/errors.py:36]
-2025-06-30 09:46:25,292 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:46:25,306 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:46:25,306 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:46:44,678 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:46:44,690 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:46:44,690 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 09:47:50,203 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 10:29:02,733 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 10:29:02,747 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 10:29:02,747 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 11:04:51,579 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 11:05:04,113 ERROR: Exception on /explore [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 171, in explore
-    return render_template('index.html', title='Explore', posts=posts)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1016, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 975, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 771, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 11, in template
-    {% block content %}
-jinja2.exceptions.TemplateAssertionError: block 'content' defined twice
-2025-06-30 11:05:07,730 ERROR: Failed to send error email: The current application was not configured with Flask-Mail [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
-2025-06-30 11:08:53,670 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 11:08:56,284 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 28, in index
-    if form.validate_on_submit():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: FlaskForm.validate_on_submit() missing 1 required positional argument: 'self'
-2025-06-30 11:08:59,391 ERROR: Failed to send error email: The current application was not configured with Flask-Mail [in /home/asaduzzaman-rayhan/microblog/app/errors.py:27]
+2025-07-10 14:53:03,993 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:26:42,769 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:26:42,830 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:26:42,859 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:26:42,894 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:28:38,467 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:28:38,476 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:28:38,563 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:28:38,565 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:29:45,691 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:34:17,110 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:34:17,136 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:34:17,299 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:34:17,325 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:37:03,542 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:40:40,946 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:42:47,239 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:42:47,388 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:42:47,523 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:42:47,540 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:43:39,338 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:43:39,355 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:43:39,503 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:43:39,533 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:44:02,696 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:44:02,725 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:44:02,868 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:44:02,887 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:47:39,100 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:47:39,210 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:47:39,354 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:47:39,368 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:48:30,412 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:54:16,363 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:54:16,555 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:54:16,591 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 15:54:16,618 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:22:54,893 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:22:54,957 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:22:55,120 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:22:55,131 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:23:16,025 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:23:16,072 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:23:16,149 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-10 16:23:16,161 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:32:52,057 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:32:52,057 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:32:52,086 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:32:52,118 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:35:02,033 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:35:02,111 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:35:02,207 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-13 10:35:02,235 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]

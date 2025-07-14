@@ -1,5 +1,65 @@
-2025-06-30 17:07:56,660 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 17:08:02,919 ERROR: Exception on / [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+2025-07-13 10:47:14,401 ERROR: Exception on /auth/login [POST] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 675, in __init__
+    self.__connect()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 971, in _request_authentication
+    auth_packet = self._process_auth(plugin_name, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1062, in _process_auth
+    pkt = self._read_packet()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'microblog'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -13,101 +73,90 @@ Traceback (most recent call last):
   File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 54, in index
-    return render_template("index.html", title='Home Page', form=form,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
+  File "/home/asaduzzaman-rayhan/microblog/app/auth/routes.py", line 19, in login
+    user = db.session.scalar(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 1840, in scalar
+    return self._proxied.scalar(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2413, in scalar
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2241, in _execute_internal
+    conn = self._connection_for_bind(bind)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 23, in top-level template code
-    <a href="{{ url_for('logout') }}">Logout</a>
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'logout'. Did you mean 'login' instead?
-2025-06-30 17:09:44,129 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:10:39,194 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:10:55,947 ERROR: Exception on /login [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/routes.py", line 75, in login
-    return render_template('login.html', title='Sign In', form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/login.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/base.html", line 36, in top-level template code
-    {% block content %}{% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/templates/login.html", line 26, in block 'content'
-    <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password_request'. Did you mean 'edit_profile' instead?
-2025-06-30 22:14:19,220 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:14:19,236 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:14:19,236 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:15:39,067 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:15:39,082 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:15:39,082 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:18:19,634 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:18:19,646 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:18:19,646 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:20:34,620 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:20:34,635 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:20:34,635 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:21:10,997 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:49:54,506 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:53:16,310 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 22:56:17,728 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 23:00:36,744 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 23:05:04,873 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 23:56:40,298 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-06-30 23:58:05,056 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 00:03:40,167 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
-2025-07-01 09:44:22,438 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:40]
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2110, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in _connection_for_bind
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1189, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3273, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 147, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3297, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 449, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 713, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 179, in _do_get
+    with util.safe_reraise():
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 390, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 675, in __init__
+    self.__connect()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 901, in __connect
+    with util.safe_reraise():
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 897, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 646, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 625, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 971, in _request_authentication
+    auth_packet = self._process_auth(plugin_name, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1062, in _process_auth
+    pkt = self._read_packet()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1045, "Access denied for user 'microblog'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

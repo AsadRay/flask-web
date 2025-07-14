@@ -1,0 +1,10 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
+    container_name: elasticsearch
+    ports:
+      - "${ELASTIC_PORT}:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    mem_limit: ${ELASTIC_MEMORY}
