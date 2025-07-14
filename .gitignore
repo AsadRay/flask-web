@@ -60,3 +60,6 @@ dist/
 .pytest_cache/
 
 elasticsearch-9.0.0
+
+elasticsearch-9.0.0-linux-x86_64.tar.gz
+elasticsearch-9.0.0-linux-x86_64.tar.gz.sha512
