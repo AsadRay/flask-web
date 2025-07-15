@@ -58,6 +58,7 @@ dist/
 
 # pytest cache
 .pytest_cache/
+.vagrant
 
 elasticsearch-9.0.0
 
