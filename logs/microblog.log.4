@@ -1,4 +1,97 @@
-2025-07-13 10:49:42,697 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:49:42,711 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:49:42,913 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:49:42,947 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 07:22:37,588 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:22:37,643 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:22:37,700 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:34:14,454 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:34:14,642 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:34:14,721 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:34:14,739 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:35:53,334 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:38:04,218 ERROR: Exception on /index [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
+    response = self.pool.urlopen(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f0574a380a0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/vagrant/app/main/routes.py", line 41, in index
+    db.session.commit()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 599, in commit
+    return self._proxied.commit()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1323, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/event/attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "/vagrant/app/models.py", line 53, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "/vagrant/app/search.py", line 9, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, document=payload)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+    return api(*args, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 2207, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
+    resp = node.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
+    raise err from e
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f0574a3a470>: Failed to establish a new connection: [Errno 111] Connection refused))
+2025-07-14 07:38:15,789 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:38:15,823 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:38:15,880 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:38:15,982 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:40:10,214 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:40:10,270 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:40:10,299 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:40:10,330 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 07:43:25,936 INFO: Microblog startup [in /vagrant/app/__init__.py:79]

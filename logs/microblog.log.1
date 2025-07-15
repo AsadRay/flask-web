@@ -1,114 +1,89 @@
-2025-07-13 10:51:39,382 ERROR: Exception on /search [GET] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
+2025-07-14 08:41:49,938 ERROR: Exception on /index [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 198, in _new_conn
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
     sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
     raise err
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
     sock.connect(sa)
 ConnectionRefusedError: [Errno 111] Connection refused
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
     response = self.pool.urlopen(
-               ^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
     retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 449, in increment
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
     raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
     raise value
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
     response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
     conn.request(
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 494, in request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
     self.endheaders()
-  File "/usr/lib/python3.12/http/client.py", line 1331, in endheaders
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/usr/lib/python3.12/http/client.py", line 1091, in _send_output
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
     self.send(msg)
-  File "/usr/lib/python3.12/http/client.py", line 1035, in send
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
     self.connect()
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 325, in connect
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
     self.sock = self._new_conn()
-                ^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/urllib3/connection.py", line 213, in _new_conn
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x72129f29dca0>: Failed to establish a new connection: [Errno 111] Connection refused
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f8fa551ff10>: Failed to establish a new connection: [Errno 111] Connection refused
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/main/routes.py", line 174, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/models.py", line 28, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/app/search.py", line 19, in query_index
-    search = current_app.elasticsearch.search(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+  File "/vagrant/app/main/routes.py", line 41, in index
+    db.session.commit()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 599, in commit
+    return self._proxied.commit()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1323, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/event/attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "/vagrant/app/models.py", line 53, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "/vagrant/app/search.py", line 9, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, document=payload)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
     return api(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/__init__.py", line 3674, in search
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 2207, in index
     return self.perform_request(  # type: ignore[return-value]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
     meta, resp_body = self.transport.perform_request(
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_transport.py", line 342, in perform_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
     resp = node.perform_request(
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
     raise err from e
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x72129f29d1f0>: Failed to establish a new connection: [Errno 111] Connection refused))
-2025-07-13 10:52:25,501 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:13,144 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:27,958 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:27,984 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:28,123 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:28,146 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:54:39,744 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '5', '_version': 10, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 161, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 10:55:36,288 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:56:05,753 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '6', '_version': 9, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 164, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 10:56:52,655 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 10:57:44,969 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:03:05,589 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:03:05,745 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:03:05,833 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:03:05,862 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:07:21,228 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:10:39,628 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:13:08,183 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:38:18,655 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '7', '_version': 9, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 167, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 11:38:58,712 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:39:15,285 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '9', '_version': 9, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 171, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 11:39:58,222 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '8', '_version': 9, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 173, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 11:40:21,337 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:40:46,459 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:40:46,630 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:40:46,645 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:40:46,651 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f8fa551cd90>: Failed to establish a new connection: [Errno 111] Connection refused))
+2025-07-14 08:42:27,132 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 14:45:02,129 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 14:45:02,171 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 14:45:02,194 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 14:45:02,241 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 08:49:53,113 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 08:49:53,113 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 08:49:53,159 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 08:49:53,179 INFO: Microblog startup [in /vagrant/app/__init__.py:79]

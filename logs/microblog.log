@@ -1,58 +1,132 @@
-2025-07-13 11:40:52,562 ERROR: Elasticsearch delete failed: NotFoundError(404, "{'_index': 'post', '_id': '11', '_version': 10, 'result': 'not_found', '_shards': {'total': 2, 'successful': 1, 'failed': 0}, '_seq_no': 182, '_primary_term': 3}") [in /home/asaduzzaman-rayhan/microblog/app/search.py:33]
-2025-07-13 11:44:52,684 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:48:34,700 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:48:34,793 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:48:34,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:48:34,961 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:48:41,452 WARNING: Tried to delete non-existent document ID 10 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
-2025-07-13 11:49:42,013 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:51:33,244 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:51:33,290 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:51:33,463 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:51:33,489 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:51:40,263 WARNING: Tried to delete non-existent document ID 3 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
-2025-07-13 11:51:46,894 WARNING: Tried to delete non-existent document ID 2 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
-2025-07-13 11:52:08,459 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:52:08,462 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:52:08,655 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:52:08,662 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:53:17,682 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:55:26,966 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:56:36,745 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:56:36,852 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:56:36,968 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:56:36,994 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 11:57:50,131 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:38:10,636 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:40:13,001 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:45:49,536 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:46:53,747 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:47:52,319 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:47:52,333 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:47:52,453 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 12:47:52,477 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:32:42,786 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:32:42,894 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:32:43,076 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:32:43,077 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:33:18,110 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-13 16:34:49,265 WARNING: Tried to delete non-existent document ID 13 from index post [in /home/asaduzzaman-rayhan/microblog/app/search.py:32]
-2025-07-14 09:46:43,919 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:46:43,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:46:43,919 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:46:43,920 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:48:54,513 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:49:38,217 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:49:56,698 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:49:56,746 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:49:56,872 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:49:56,879 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 09:50:45,950 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:08,447 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:08,544 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:08,719 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:08,745 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:39,133 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:39,182 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:39,296 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
-2025-07-14 10:09:39,339 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-14 08:50:00,154 ERROR: Exception on /search [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
+    response = self.pool.urlopen(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f5c5f126b60>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/vagrant/app/main/routes.py", line 174, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/vagrant/app/models.py", line 28, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/vagrant/app/search.py", line 19, in query_index
+    search = current_app.elasticsearch.search(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+    return api(*args, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 3674, in search
+    return self.perform_request(  # type: ignore[return-value]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
+    resp = node.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
+    raise err from e
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f5c5f125e10>: Failed to establish a new connection: [Errno 111] Connection refused))
+2025-07-14 08:50:31,012 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:14,610 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:14,615 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:14,636 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:14,637 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:20,732 ERROR: Exception on /search [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/vagrant/app/main/routes.py", line 174, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/vagrant/app/models.py", line 28, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/vagrant/app/search.py", line 19, in query_index
+    search = current_app.elasticsearch.search(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+    return api(*args, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 3674, in search
+    return self.perform_request(  # type: ignore[return-value]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 321, in perform_request
+    raise HTTP_EXCEPTIONS.get(meta.status, ApiError)(
+elasticsearch.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2025-07-14 09:06:33,819 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:50,519 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:50,538 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:50,623 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:06:50,694 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:07:28,515 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 09:07:39,883 WARNING: Tried to delete non-existent document ID 8 from index post [in /vagrant/app/search.py:32]
+2025-07-14 09:07:46,609 WARNING: Tried to delete non-existent document ID 6 from index post [in /vagrant/app/search.py:32]
+2025-07-14 09:09:46,818 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:28:54,150 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:28:54,260 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:28:54,262 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:28:54,302 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:34:12,550 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:34:12,739 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:34:12,743 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:34:12,752 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:34:56,664 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:40:50,818 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:40:50,848 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:40:50,896 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 10:40:50,934 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-14 16:52:14,416 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-15 09:27:16,973 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-15 09:27:16,973 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-15 09:27:16,973 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-15 09:27:17,042 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:79]
+2025-07-15 03:30:20,904 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-15 03:30:56,359 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-15 03:31:48,853 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-15 03:31:48,906 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-15 03:31:48,939 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+2025-07-15 03:31:48,961 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
