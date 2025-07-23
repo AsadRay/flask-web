@@ -1,26 +1,148 @@
 {% extends "base.html" %}
 {% import "bootstrap_wtf.html" as wtf %}
-
+{{ wtf.quick_form(form) }}
 {% block content %}
-    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
-    {% if form %}
+<style>
+    body {
+        background: linear-gradient(to right, #1f4037, #99f2c8);
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .post-card {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 15px;
+        padding: 1rem;
+        margin: 1rem auto;
+        max-width: 600px;
+        color: #eee;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .post-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .pager {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+    }
+
+    .pager li {
+        transition: transform 0.3s ease;
+    }
+
+    .pager li:hover {
+        transform: scale(1.1);
+    }
+
+    .pager a {
+        color: #fff;
+        background-color: rgba(0,0,0,0.2);
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .pager a:hover {
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sent-animation {
+        animation: popFade 0.7s ease forwards;
+    }
+
+    @keyframes popFade {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.3); opacity: 0.6; }
+        100% { transform: scale(0.9); opacity: 0; display: none; }
+    }
+</style>
+
+<h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
+
+{% if form %}
+<div style="max-width: 600px; margin: auto;">
     {{ wtf.quick_form(form) }}
-    {% endif %}
+
+</div>
+{% endif %}
+
+<div id="posts">
     {% for post in posts %}
-        {% include '_post.html' %}
+        <div class="post-card">
+            {% include '_post.html' %}
+        </div>
     {% endfor %}
-    <nav aria-label="Post navigation">
-        <ul class="pagination">
-            <li class="page-item{% if not prev_url %} disabled{% endif %}">
-                <a class="page-link" href="{{ prev_url }}">
-                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
-                </a>
-            </li>
-            <li class="page-item{% if not next_url %} disabled{% endif %}">
-                <a class="page-link" href="{{ next_url }}">
-                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+</div>
+
+<nav aria-label="Post navigation">
+    <ul class="pager">
+        <li class="previous{% if not prev_url %} disabled{% endif %}">
+            <a href="{{ prev_url or '#' }}">
+                <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+            </a>
+        </li>
+        <li class="next{% if not next_url %} disabled{% endif %}">
+            <a href="{{ next_url or '#' }}">
+                {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<audio id="send-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a58f6d807f.mp3?filename=message-113847.mp3" preload="auto"></audio>
+
+<script>
+    function playSendAnimation() {
+        const sound = document.getElementById('send-sound');
+        sound.play();
+
+        const animationDiv = document.createElement('div');
+        animationDiv.textContent = "📨 Sent!";
+        animationDiv.className = "sent-animation";
+        animationDiv.style.position = 'fixed';
+        animationDiv.style.bottom = '100px';
+        animationDiv.style.left = '50%';
+        animationDiv.style.transform = 'translateX(-50%)';
+        animationDiv.style.fontSize = '2rem';
+        animationDiv.style.color = '#fff';
+        animationDiv.style.zIndex = 9999;
+        document.body.appendChild(animationDiv);
+
+        setTimeout(() => {
+            animationDiv.remove();
+        }, 700);
+    }
+
+    const sendBtn = document.getElementById("send-btn");
+    if (sendBtn) {
+        sendBtn.addEventListener("click", playSendAnimation);
+    }
+</script>
 {% endblock %}

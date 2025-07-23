@@ -9,6 +9,7 @@ from flask_wtf.file import FileField, FileAllowed
 from app.models import User
 
 
+
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     about_me = TextAreaField(_l('About me'),
@@ -49,3 +50,7 @@ class SearchForm(FlaskForm):
 
 class DeletePostForm(FlaskForm):
     submit = SubmitField('Delete')
+
+class MessageForm(FlaskForm):
+    message =TextAreaField(_l('Message'),validators=[DataRequired(),Length(min=0, max=140)])
+    submit  = SubmitField(_l('submit'))

@@ -1,44 +1,4 @@
-2025-07-14 07:45:31,423 ERROR: Exception on /index [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
-    sock = connection.create_connection(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
-    response = self.pool.urlopen(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
-    raise value
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
-    conn.request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
-    self.endheaders()
-  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.10/http/client.py", line 976, in send
-    self.connect()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
-    self.sock = self._new_conn()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f717871a920>: Failed to establish a new connection: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
+2025-07-23 04:09:43,949 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -48,38 +8,20 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/vagrant/app/main/routes.py", line 41, in index
-    db.session.commit()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 599, in commit
-    return self._proxied.commit()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1323, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/event/attr.py", line 378, in __call__
-    fn(*args, **kw)
-  File "/vagrant/app/models.py", line 53, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "/vagrant/app/search.py", line 9, in add_to_index
-    current_app.elasticsearch.index(index=index, id=model.id, document=payload)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
-    return api(*args, **kwargs)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 2207, in index
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
-    resp = node.perform_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
-    raise err from e
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f717871b160>: Failed to establish a new connection: [Errno 111] Connection refused))
-2025-07-14 07:46:02,388 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 08:41:04,321 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 08:41:04,367 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 08:41:04,472 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 08:41:04,527 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+  File "/vagrant/app/auth/routes.py", line 33, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
+    {% import "bootstrap_wtf.html" as wtf %}
+  File "/vagrant/app/templates/base.html", line 88, in top-level template code
+    {% block content %}{% endblock %}
+  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
+    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+TypeError: macro 'quick_form' takes no keyword argument 'button_map'

@@ -8,6 +8,10 @@ from app.auth import bp
 from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
 from app.models import User
 from app.email import send_password_reset_email
+from flask_mail import Message
+from app import current_app
+from app.email import mail 
+from datetime import datetime
 
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -35,37 +39,107 @@ def logout():
     return redirect(url_for('main.index'))
 
 
+from datetime import datetime  # Make sure this is imported
+
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
+
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
+
+        # ✅ Send email after registration
+        msg = Message('Welcome to CHITCHAT!',
+                      sender=current_app.config['MAIL_DEFAULT_SENDER'],
+                      recipients=[user.email])
+
+        msg.html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body {{
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              color: #333;
+              padding: 20px;
+            }}
+            .container {{
+              background-color: #fff;
+              padding: 30px;
+              border-radius: 10px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              max-width: 600px;
+              margin: auto;
+            }}
+            .header {{
+              font-size: 24px;
+              color: #4CAF50;
+              text-align: center;
+            }}
+            .message {{
+              font-size: 16px;
+              margin-top: 20px;
+            }}
+            .footer {{
+              margin-top: 30px;
+              font-size: 14px;
+              color: #888;
+              text-align: center;
+            }}
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">Welcome to <strong>CHITCHAT</strong>, {user.username}!</div>
+            <div class="message">
+              <p>Thank you for signing up.</p>
+              <p>We’re excited to have you join our community. Get ready to connect, chat, and share with people like you.</p>
+            </div>
+            <div class="footer">
+              &copy; {datetime.utcnow().year} CHITCHAT • All rights reserved.
+            </div>
+          </div>
+        </body>
+        </html>
+        """
+
+        mail.send(msg)
+
         flash(_('Congratulations, you are now a registered user!'))
         return redirect(url_for('auth.login'))
-    return render_template('auth/register.html', title=_('Register'),
-                           form=form)
+
+    return render_template('auth/register.html', title=_('Register'), form=form)
+
 
 
 @bp.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
+    
     form = ResetPasswordRequestForm()
+
     if form.validate_on_submit():
         user = db.session.scalar(
             sa.select(User).where(User.email == form.email.data))
+        
         if user:
             send_password_reset_email(user)
-        flash(
-            _('Check your email for the instructions to reset your password'))
+            flash(_('Check your email for the instructions to reset your password'))
+        else:
+            flash(_('The email you entered is not registered. Please try again.'), 'error')
+        
         return redirect(url_for('auth.login'))
+
     return render_template('auth/reset_password_request.html',
                            title=_('Reset Password'), form=form)
+
 
 
 @bp.route('/reset_password/<token>', methods=['GET', 'POST'])

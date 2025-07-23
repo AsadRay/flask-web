@@ -8,3 +8,4 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=false
     mem_limit: ${ELASTIC_MEMORY}
+

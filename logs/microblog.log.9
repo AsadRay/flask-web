@@ -1,41 +1,8 @@
-2025-07-14 05:45:22,327 ERROR: Exception on /index [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-21 07:26:30,886 ERROR: Exception on /auth/login [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
-    sock = connection.create_connection(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
-    raise err
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
-    response = self.pool.urlopen(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
-    raise value
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    response = self._make_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
-    conn.request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
-    self.endheaders()
-  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.10/http/client.py", line 976, in send
-    self.connect()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
-    self.sock = self._new_conn()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
-    raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f8006107700>: Failed to establish a new connection: [Errno 111] Connection refused
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2522, in get_property
+    return self._props[key]
+KeyError: 'notifications'
 
 The above exception was the direct cause of the following exception:
 
@@ -48,38 +15,114 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/vagrant/app/main/routes.py", line 41, in index
-    db.session.commit()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 599, in commit
-    return self._proxied.commit()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1323, in commit
-    self.session.dispatch.after_commit(self.session)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/event/attr.py", line 378, in __call__
-    fn(*args, **kw)
-  File "/vagrant/app/models.py", line 53, in after_commit
-    add_to_index(obj.__tablename__, obj)
-  File "/vagrant/app/search.py", line 9, in add_to_index
-    current_app.elasticsearch.index(index=index, id=model.id, document=payload)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
-    return api(*args, **kwargs)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 2207, in index
-    return self.perform_request(  # type: ignore[return-value]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
-    meta, resp_body = self.transport.perform_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
-    resp = node.perform_request(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
-    raise err from e
-elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f8006107bb0>: Failed to establish a new connection: [Errno 111] Connection refused))
-2025-07-14 05:46:00,109 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 05:48:55,813 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 05:48:55,915 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 05:48:55,919 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
-2025-07-14 05:48:55,955 INFO: Microblog startup [in /vagrant/app/__init__.py:79]
+  File "/vagrant/app/auth/routes.py", line 23, in login
+    user = db.session.scalar(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 1840, in scalar
+    return self._proxied.scalar(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2413, in scalar
+    return self._execute_internal(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1629, in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 711, in _compile_w_cache
+    compiled_sql = self._compiler(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 320, in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 1446, in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 886, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 932, in process
+    return obj._compiler_dispatch(self, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/visitors.py", line 141, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 4728, in visit_select
+    compile_state = select_stmt._compile_state_factory(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/base.py", line 687, in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 447, in create_for_statement
+    return cls._create_orm_context(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 1175, in _create_orm_context
+    _QueryEntity.to_compile_state(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2628, in to_compile_state
+    _MapperEntity(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2708, in __init__
+    entity._post_inspect
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4214, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4255, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
+    self.do_init()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1661, in do_init
+    self._generate_backref()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 2145, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1592, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(user)]' has no property 'notifications'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+2025-07-21 07:29:02,358 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 07:29:02,570 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 07:29:02,581 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 07:29:02,594 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:30:58,537 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:30:58,624 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:30:58,641 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:30:58,682 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:40:09,413 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:40:09,525 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:40:09,645 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:40:09,730 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:41:02,802 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:41:02,942 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:41:02,957 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:41:02,995 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:44:06,436 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:44:06,442 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:44:06,579 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:44:06,601 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:47:02,689 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:47:02,894 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:47:02,912 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:47:02,972 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:49:22,494 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:49:22,520 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:49:22,679 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:49:22,689 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:54:08,208 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:54:08,332 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:54:08,374 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:54:08,384 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:55:59,579 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:55:59,831 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:55:59,843 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:55:59,859 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:57:54,500 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:57:54,566 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:57:54,616 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 10:57:54,702 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 11:02:05,244 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 11:02:05,411 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 11:02:05,435 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 11:02:05,452 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+2025-07-21 23:18:39,220 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:78]
+2025-07-21 23:18:39,220 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:78]
+2025-07-21 23:18:39,222 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:78]
+2025-07-21 23:18:39,222 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:78]

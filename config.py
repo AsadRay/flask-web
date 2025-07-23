@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -18,7 +19,10 @@ class Config:
 
     MS_TRANSLATOR_KEY = '69VNsppFoc35KbSyEpZ0ZUqje6kKRxfcB6tE1OOWNxZ0WG69hWMJJQQJ99BFACqBBLyXJ3w3AAAbACOGsBXH'
     MS_TRANSLATOR_REGION = 'southeastasia'
-    
 
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
-    
+
+    # # 🔽 New lines for file upload support
+    # UPLOAD_FOLDER = os.path.join(basedir, 'app/static/profile_pics')
+    # MAX_CONTENT_LENGTH = 2 * 1024 * 1024  # 2MB limit
+    # ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}

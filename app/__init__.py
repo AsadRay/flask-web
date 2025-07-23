@@ -10,7 +10,6 @@ from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
 from config import Config
 from elasticsearch import Elasticsearch
-
 # Initialize extensions without app
 db = SQLAlchemy()
 migrate = Migrate()
