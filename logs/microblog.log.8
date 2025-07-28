@@ -1,131 +1,80 @@
-2025-07-21 17:29:48,353 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:29:48,406 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:31:07,886 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:31:07,922 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:31:07,958 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:31:08,014 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:33:57,278 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:33:57,281 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:33:57,351 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:33:57,396 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:48:38,705 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:48:38,711 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:48:38,786 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:48:38,793 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:48:45,492 ERROR: Exception on /messages [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-27 17:15:17,493 ERROR: Exception on /notifications/unread_message_count [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/vagrant/app/main/routes.py", line 249, in messages
-    return render_template('messages.html', messages=messages.items,
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/messages.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/messages.html", line 40, in block 'content'
-    <img src="{{ user.avatar(150) }}" alt="Avatar of {{ user.username }}" class="avatar-lg" />
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 490, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'user' is undefined
-2025-07-21 17:51:32,998 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:51:33,082 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:51:33,095 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:51:33,154 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:53:48,296 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:53:48,429 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:53:48,435 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:53:48,497 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:24,212 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:24,282 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:24,390 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:24,422 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:30,763 ERROR: Exception on /messages [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/vagrant/app/main/routes.py", line 249, in messages
-    return render_template('messages.html', messages=messages.items,
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/messages.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/messages.html", line 160, in block 'content'
-    <a href="{{ url_for('user.profile', username=post.author.username) }}" class="username-link">
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'user.profile' with values ['username']. Did you mean 'main.edit_profile' instead?
-2025-07-21 17:58:32,502 ERROR: Exception on /messages [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/vagrant/app/main/routes.py", line 249, in messages
-    return render_template('messages.html', messages=messages.items,
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/messages.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/messages.html", line 160, in block 'content'
-    <a href="{{ url_for('user.profile', username=post.author.username) }}" class="username-link">
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'user.profile' with values ['username']. Did you mean 'main.edit_profile' instead?
-2025-07-21 17:58:51,697 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:51,876 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:51,882 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 17:58:51,970 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/vagrant/app/main/routes.py", line 31, in before_request
+    if current_user.is_authenticated:
+  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 318, in __get__
+    obj = instance._get_current_object()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 526, in _get_current_object
+    return get_name(local())
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 25, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 370, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/login_manager.py", line 364, in _load_user
+    user = self._user_callback(user_id)
+  File "/vagrant/app/models.py", line 212, in load_user
+    return db.session.get(User, int(id))
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 1058, in get
+    return self._proxied.get(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3694, in get
+    return self._get_impl(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3873, in _get_impl
+    return db_load_fn(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2365, in execute
+    return self._execute_internal(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1629, in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 711, in _compile_w_cache
+    compiled_sql = self._compiler(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 320, in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 1446, in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 886, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 932, in process
+    return obj._compiler_dispatch(self, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/visitors.py", line 141, in _compiler_dispatch
+    return meth(self, **kw)  # type: ignore  # noqa: E501
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 4728, in visit_select
+    compile_state = select_stmt._compile_state_factory(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/base.py", line 687, in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 447, in create_for_statement
+    return cls._create_orm_context(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 1175, in _create_orm_context
+    _QueryEntity.to_compile_state(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2628, in to_compile_state
+    _MapperEntity(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2708, in __init__
+    entity._post_inspect
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2724, in _post_inspect
+    self._check_configure()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4214, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4251, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(user)]'. Original exception was: Class 'sqlalchemy.orm.query.Query' is not mapped
+2025-07-27 17:15:21,133 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]

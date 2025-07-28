@@ -21,6 +21,7 @@ class Config:
     MS_TRANSLATOR_REGION = os.environ.get('MS_TRANSLATOR_REGION')
 
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
 
     # # 🔽 New lines for file upload support
     # UPLOAD_FOLDER = os.path.join(basedir, 'app/static/profile_pics')

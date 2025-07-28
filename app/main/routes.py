@@ -4,7 +4,6 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 import sqlalchemy as sa
 from langdetect import detect, LangDetectException
-from app import db
 from app.main.forms import EditProfileForm, EmptyForm, PostForm
 from app.models import User, Post
 from app.translate import translate
@@ -15,6 +14,16 @@ from app.main.forms import PostForm,DeletePostForm
 from app.main.forms import MessageForm
 from app.models import Message
 from app.main import bp
+from flask import Response
+import json
+from flask import send_file
+from io import BytesIO
+from fpdf import FPDF
+from sqlalchemy import select
+from app.models import Post
+import pdfkit
+from app import db
+
 
 
 @bp.before_app_request
@@ -255,3 +264,66 @@ def unread_message_count():
     return {'count': current_user.unread_message_count()}
 
 
+@bp.route('/export_posts')
+@login_required
+def export_posts():
+    if current_user.get_task_in_progress('export_posts'):
+        flash(_('An export task is currently in progress'))
+    else:
+        current_user.launch_task('export_posts', _('Exporting posts...'))
+        db.session.commit()
+        flash(_('Export started. You will receive an email when done.'))
+    # For ajax call, just return JSON to avoid redirect loop
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or \
+   request.accept_mimetypes.accept_json:
+
+        return {'status': 'started'}
+    return redirect(url_for('main.user', username=current_user.username))
+
+@bp.route('/export_posts/progress')
+@login_required
+def export_posts_progress():
+    task = current_user.get_task_in_progress('export_posts')
+    if task:
+        progress = task.get_progress()
+        return {'in_progress': True, 'progress': progress}
+    return {'in_progress': False, 'progress': 100}
+
+@bp.route('/download_posts')
+@login_required
+def download_posts():
+    # Query posts belonging to current user, ordered by timestamp desc
+    stmt = select(Post).where(Post.user_id == current_user.id).order_by(Post.timestamp.desc())
+    posts = db.session.execute(stmt).scalars().all()  # Use db.session here
+
+    # Prepare HTML content for PDF with better styling (you can customize further)
+    html_content = f"""
+    <html>
+    <head>
+        <style>
+            body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; padding: 20px; }}
+            h1 {{ color: #1f4037; }}
+            p {{ margin: 10px 0; font-size: 14px; }}
+            strong {{ color: #0b8457; }}
+        </style>
+    </head>
+    <body>
+        <h1>Posts by {current_user.username}</h1>
+    """
+
+    for post in posts:
+        html_content += f"<p><strong>{post.timestamp.strftime('%Y-%m-%d %H:%M')}</strong>: {post.body}</p>"
+
+    html_content += "</body></html>"
+
+    # Convert HTML to PDF using pdfkit
+    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')  # Adjust path if necessary
+    pdf = pdfkit.from_string(html_content, False, configuration=config)
+
+    # Send PDF as download
+    return send_file(
+        BytesIO(pdf),
+        mimetype='application/pdf',
+        download_name='posts.pdf',
+        as_attachment=True
+    )

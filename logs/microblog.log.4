@@ -1,12 +1,92 @@
-2025-07-23 04:06:41,333 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:06:41,446 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:06:41,482 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:06:41,551 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:22,848 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:23,018 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:23,035 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:23,087 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:23,933 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-28 06:07:47,261 ERROR: Exception on /api/users [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.create_user' did not return a valid response. The function either returned None or ended without a return statement.
+2025-07-28 06:08:58,699 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:08:58,780 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:08:58,920 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:08:58,958 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:09:58,679 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:14:35,792 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:14:35,847 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:14:35,876 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:14:35,953 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:17:49,647 ERROR: Exception on /api/users/1 [PUT] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.update_user' did not return a valid response. The function either returned None or ended without a return statement.
+2025-07-28 06:18:40,817 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:20:53,041 ERROR: Exception on /api/users/1 [PUT] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.update_user' did not return a valid response. The function either returned None or ended without a return statement.
+2025-07-28 06:21:16,068 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:21:16,116 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:21:16,168 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:21:16,257 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 06:22:00,967 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:25:05,600 ERROR: Exception on /search [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 167, in perform_request
+    response = self.pool.urlopen(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/retry.py", line 449, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+  File "/usr/lib/python3.10/http/client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.10/http/client.py", line 1038, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.10/http/client.py", line 976, in send
+    self.connect()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f4671862cb0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -16,24 +96,30 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
-2025-07-23 04:09:36,158 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/vagrant/app/main/routes.py", line 190, in search
+    posts, total = Post.search(g.search_form.q.data, page,
+  File "/vagrant/app/models.py", line 58, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/vagrant/app/search.py", line 19, in query_index
+    search = current_app.elasticsearch.search(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/utils.py", line 404, in wrapped
+    return api(*args, **kwargs)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/__init__.py", line 3674, in search
+    return self.perform_request(  # type: ignore[return-value]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elasticsearch/_sync/client/_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_transport.py", line 342, in perform_request
+    resp = node.perform_request(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/elastic_transport/_node/_http_urllib3.py", line 202, in perform_request
+    raise err from e
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f4671862380>: Failed to establish a new connection: [Errno 111] Connection refused))
+2025-07-28 09:45:54,869 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:45:55,141 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:45:55,147 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:45:55,163 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:48:33,754 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,74 +129,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
-2025-07-23 04:09:42,602 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
-2025-07-23 04:09:43,929 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    token = basic_auth.current_user().get_token()
+AttributeError: 'User' object has no attribute 'get_token'

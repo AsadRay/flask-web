@@ -1,128 +1,108 @@
-2025-07-23 04:09:47,171 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-28 16:41:25,477 ERROR: Exception on /api/tokens [POST] [in /home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py:875]
 Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'user.token' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
-2025-07-23 04:09:52,424 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:52,461 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:52,616 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:09:52,640 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:12:12,813 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:12:13,006 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:12:13,018 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:12:13,041 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:13:22,572 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:13:22,702 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:13:22,758 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:13:22,821 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:14:14,817 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:14:14,898 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:14:14,976 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:14:14,992 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:00,871 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:00,873 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:00,994 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:01,052 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:48,229 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:48,440 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:48,450 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:15:48,546 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:18:16,579 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:18:16,683 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:18:16,739 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:18:16,744 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:20:44,570 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:20:44,651 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:20:44,687 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:20:44,808 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:22:29,769 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:22:29,835 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:22:29,910 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:22:29,917 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:24:07,253 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:24:07,324 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:24:07,386 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:24:07,450 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:26:55,204 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:26:55,230 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:26:55,268 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:26:55,344 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:28:12,715 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:28:12,749 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:28:12,797 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:28:12,906 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:34:32,265 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:34:32,307 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:34:32,402 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:34:32,454 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:36:52,228 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:36:52,278 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:36:52,322 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:36:52,346 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:37:17,011 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:37:17,135 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:37:17,186 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:37:17,277 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:39:17,358 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:39:17,569 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:39:17,582 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:39:17,607 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:42:34,169 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:42:34,231 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:42:34,312 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:42:34,393 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:43:44,929 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:43:44,964 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:43:45,092 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:43:45,146 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:52:36,155 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:52:36,186 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:52:36,268 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:52:36,300 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:56:25,518 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:56:25,636 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:56:25,658 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:56:25,712 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:58:50,906 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:58:51,082 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:58:51,083 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 04:58:51,127 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:02:27,575 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:02:27,617 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:02:27,728 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:02:27,769 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:06:30,844 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:06:30,897 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:06:31,015 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:06:31,093 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:08:42,752 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:08:42,798 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:08:42,934 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:08:42,962 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:18:02,601 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:18:02,650 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:18:02,724 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:18:02,775 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-23 05:24:16,458 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_httpauth.py", line 161, in decorated
+    user = self.authenticate(auth, password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/flask_httpauth.py", line 245, in authenticate
+    return self.ensure_sync(self.verify_password_callback)(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/app/api/auth.py", line 11, in verify_password
+    user = db.session.scalar(sa.select(User).where(User.username == username))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 1840, in scalar
+    return self._proxied.scalar(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2413, in scalar
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
+    return meth(
+           ^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/asaduzzaman-rayhan/microblog/venv/lib/python3.12/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'user.token' in 'field list'")
+[SQL: SELECT user.id, user.username, user.email, user.password_hash, user.about_me, user.last_seen, user.last_message_read_time, user.token, user.token_expiration 
+FROM user 
+WHERE user.username = %(username_1)s]
+[parameters: {'username_1': 'Wassem'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

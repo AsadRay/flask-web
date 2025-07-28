@@ -1,25 +1,36 @@
-2025-07-21 07:25:53,916 ERROR: Exception on /auth/login [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
-Traceback (most recent call last):
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2522, in get_property
-    return self._props[key]
-KeyError: 'notifications'
-
-The above exception was the direct cause of the following exception:
-
+2025-07-27 17:14:12,532 ERROR: Exception on / [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 23, in login
-    user = db.session.scalar(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 1840, in scalar
-    return self._proxied.scalar(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2413, in scalar
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/vagrant/app/main/routes.py", line 31, in before_request
+    if current_user.is_authenticated:
+  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 318, in __get__
+    obj = instance._get_current_object()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 526, in _get_current_object
+    return get_name(local())
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 25, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 370, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/login_manager.py", line 364, in _load_user
+    user = self._user_callback(user_id)
+  File "/vagrant/app/models.py", line 212, in load_user
+    return db.session.get(User, int(id))
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 1058, in get
+    return self._proxied.get(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3694, in get
+    return self._get_impl(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3873, in _get_impl
+    return db_load_fn(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/loading.py", line 694, in load_on_pk_identity
+    session.execute(
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2365, in execute
     return self._execute_internal(
   File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
     result: Result[Any] = compile_state_cls.orm_execute_statement(
@@ -69,16 +80,11 @@ Traceback (most recent call last):
     prop.init()
   File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
     self.do_init()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1661, in do_init
-    self._generate_backref()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 2145, in _generate_backref
-    self._add_reverse_property(self.back_populates)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1592, in _add_reverse_property
-    other = self.mapper.get_property(key, _configure_mappers=False)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2524, in get_property
-    raise sa_exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(user)]' has no property 'notifications'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
-2025-07-21 07:26:24,242 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 07:26:24,312 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 07:26:24,445 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
-2025-07-21 07:26:24,449 INFO: Microblog startup [in /vagrant/app/__init__.py:78]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1656, in do_init
+    self._setup_entity()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1878, in _setup_entity
+    entity = class_mapper(resolved_argument, configure=False)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/base.py", line 565, in class_mapper
+    raise exc.UnmappedClassError(class_)
+sqlalchemy.orm.exc.UnmappedClassError: Class 'sqlalchemy.orm.query.Query' is not mapped
+2025-07-27 17:14:14,504 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]

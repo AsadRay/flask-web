@@ -100,6 +100,12 @@
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    .progress-text {
+        font-weight: bold;
+        margin-left: 10px;
+        color: #00ffff;
+    }
 </style>
 
 <div class="profile-card">
@@ -116,7 +122,19 @@
            {{ _('%(count)d following', count=user.following_count()) }}</p>
 
         {% if user == current_user %}
-            <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
+            <p>
+                <a href="{{ url_for('main.edit_profile') }}">
+                    {{ _('Edit your profile') }}
+                </a>
+            </p>
+
+            <p>
+                <button id="download-btn" class="btn btn-primary">
+                    {{ _('Download your posts') }}
+                </button>
+                <span id="progress-text" class="progress-text"></span>
+            </p>
+
         {% elif not current_user.is_following(user) %}
             <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
                 {{ form.hidden_tag() }}
@@ -159,4 +177,61 @@
         </li>
     </ul>
 </nav>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('download-btn');
+    const progressText = document.getElementById('progress-text');
+
+    btn.addEventListener('click', async () => {
+        btn.disabled = true;
+        progressText.innerText = 'Starting export...';
+
+        try {
+            const startResp = await fetch('{{ url_for("main.export_posts") }}', {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+
+            if (!startResp.ok) throw new Error('Failed to start export');
+
+            let currentProgress = 0;
+
+            async function pollProgress() {
+                const resp = await fetch('{{ url_for("main.export_posts_progress") }}');
+                const data = await resp.json();
+
+                if (data.in_progress && data.progress < 100) {
+                    currentProgress = data.progress;
+                    progressText.innerText = `Downloading: ${currentProgress}%`;
+                    setTimeout(pollProgress, 1000);
+                } else {
+                    progressText.innerText = 'Downloading: 100% ✔';
+
+                    // Fetch PDF and trigger download
+                    const fileResp = await fetch('{{ url_for("main.download_posts") }}');
+                    const blob = await fileResp.blob();
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'posts.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+
+                    btn.disabled = false;
+                    setTimeout(() => { progressText.innerText = ''; }, 4000);
+                }
+            }
+
+            pollProgress();
+
+        } catch (err) {
+            console.error(err);
+            progressText.innerText = 'Error. Try again.';
+            btn.disabled = false;
+        }
+    });
+});
+</script>
 {% endblock %}

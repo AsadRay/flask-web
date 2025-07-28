@@ -15,7 +15,6 @@
       crossorigin="anonymous"
     />
     <style>
-      /* Fix navbar on top and above everything */
       nav.navbar {
         position: fixed;
         top: 0;
@@ -25,13 +24,9 @@
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
-
-      /* Padding so page content not hidden behind fixed navbar */
       .container.mt-3 {
-        padding-top: 70px; /* adjust if navbar height changes */
+        padding-top: 70px;
       }
-
-      /* Make sure promo-content doesn't block clicks */
       .promo-content {
         pointer-events: none;
       }
@@ -99,15 +94,30 @@
     </nav>
 
     <div class="container mt-3">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-info" role="alert">{{ message }}</div>
-          {% endfor %}
+      {% block content %}
+        {% if current_user.is_authenticated %}
+          {% with tasks = current_user.get_tasks_in_progress() %}
+            {% if tasks %}
+              {% for task in tasks %}
+                <div class="alert alert-success" role="alert">
+                  {{ task.description }}
+                  <span id="{{ task.id }}-progress">{{ task.get_progress() }}</span>%
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
         {% endif %}
-      {% endwith %}
 
-      {% block content %}{% endblock %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {{ super() }}
+      {% endblock %}
     </div>
 
     <script
@@ -167,29 +177,65 @@
       }
 
       document.addEventListener('DOMContentLoaded', initialize_popovers);
-    </script>
-    <script>
-    function updateMessageBadge() {
-        fetch('{{ url_for("main.unread_message_count") }}')
-            .then(response => response.json())
-            .then(data => {
-                const badge = document.getElementById("message_count");
-                if (data.count > 0) {
-                    badge.textContent = data.count;
-                    badge.style.visibility = "visible";
-                } else {
-                    badge.style.visibility = "hidden";
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching unread message count:', error);
-            });
-    }
 
-    // Call it every 10 seconds
-    setInterval(updateMessageBadge, 5000);
-    document.addEventListener("DOMContentLoaded", updateMessageBadge);
-  </script>
+      function updateMessageBadge() {
+          fetch('{{ url_for("main.unread_message_count") }}')
+              .then(response => response.json())
+              .then(data => {
+                  const badge = document.getElementById("message_count");
+                  if (data.count > 0) {
+                      badge.textContent = data.count;
+                      badge.style.visibility = "visible";
+                  } else {
+                      badge.style.visibility = "hidden";
+                  }
+              })
+              .catch(error => {
+                  console.error('Error fetching unread message count:', error);
+              });
+      }
+
+      // Call it every 5 seconds
+      setInterval(updateMessageBadge, 5000);
+      document.addEventListener("DOMContentLoaded", updateMessageBadge);
+
+      // Helper function to update task progress dynamically
+      function set_task_progress(task_id, progress) {
+        const progressElement = document.getElementById(task_id + '-progress');
+        if (progressElement) {
+          progressElement.innerText = progress;
+        }
+      }
+
+      // Helper function to update unread message count badge
+      function set_message_count(data) {
+        const badge = document.getElementById("message_count");
+        if (data.count > 0) {
+          badge.textContent = data.count;
+          badge.style.visibility = "visible";
+        } else {
+          badge.style.visibility = "hidden";
+        }
+      }
+
+      // Process notifications array for dynamic UI updates
+      function process_notifications(notifications) {
+        let since = null;
+        for (let i = 0; i < notifications.length; i++) {
+          switch (notifications[i].name) {
+            case 'unread_message_count':
+              set_message_count(notifications[i].data);
+              break;
+            case 'task_progress':
+              set_task_progress(notifications[i].data.task_id,
+                  notifications[i].data.progress);
+              break;
+          }
+          since = notifications[i].timestamp;
+        }
+        return since;
+      }
+    </script>
     {% endblock %}
   </body>
 </html>

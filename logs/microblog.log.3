@@ -1,4 +1,4 @@
-2025-07-23 04:09:43,949 ERROR: Exception on /auth/login [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-28 09:50:23,239 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,20 +8,126 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/vagrant/app/auth/routes.py", line 33, in login
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/jinja2/environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/vagrant/app/templates/auth/login.html", line 2, in top-level template code
-    {% import "bootstrap_wtf.html" as wtf %}
-  File "/vagrant/app/templates/base.html", line 88, in top-level template code
-    {% block content %}{% endblock %}
-  File "/vagrant/app/templates/auth/login.html", line 113, in block 'content'
-    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-TypeError: macro 'quick_form' takes no keyword argument 'button_map'
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    user = basic_auth.current_user()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 09:51:33,706 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:51:33,711 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:51:33,731 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:51:33,791 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 09:51:38,704 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    token = basic_auth.current_user().get_token()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 09:55:30,518 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    token = basic_auth.current_user().get_token()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 09:56:43,467 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    token = basic_auth.current_user().get_token()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 10:09:26,994 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:09:27,001 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:09:27,036 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:09:27,043 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:15:39,085 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:15:39,112 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:15:39,138 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:15:39,188 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:19:30,787 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:19:30,999 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:19:31,019 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:19:31,046 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:24:20,454 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:24:20,690 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:24:20,769 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:24:20,818 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:33:23,865 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:33:29,506 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:34:16,091 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:34:16,171 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:34:16,191 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:34:16,323 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 10:35:19,757 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    token = basic_auth.current_user().get_token()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 10:36:44,909 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    user = basic_auth.current_user()
+AttributeError: 'User' object has no attribute 'get_token'
+2025-07-28 16:37:09,702 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:84]
+2025-07-28 16:37:36,795 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:84]
+2025-07-28 10:42:07,650 ERROR: Exception on /api/tokens [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_httpauth.py", line 174, in decorated
+    return self.ensure_sync(f)(*args, **kwargs)
+  File "/vagrant/app/api/tokens.py", line 8, in get_token
+    user = basic_auth.current_user()
+AttributeError: 'User' object has no attribute 'get_token'
