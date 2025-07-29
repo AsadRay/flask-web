@@ -1,4 +1,4 @@
-2025-07-27 17:14:12,532 ERROR: Exception on / [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-27 17:14:17,519 ERROR: Exception on /notifications/unread_message_count [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -87,4 +87,4 @@ Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/base.py", line 565, in class_mapper
     raise exc.UnmappedClassError(class_)
 sqlalchemy.orm.exc.UnmappedClassError: Class 'sqlalchemy.orm.query.Query' is not mapped
-2025-07-27 17:14:14,504 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]
+2025-07-27 17:14:22,679 ERROR: Failed to send error email: Connection unexpectedly closed [in /vagrant/app/errors/handlers.py:30]

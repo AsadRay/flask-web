@@ -1,4 +1,4 @@
-2025-07-27 17:15:17,493 ERROR: Exception on /notifications/unread_message_count [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-27 17:16:17,493 ERROR: Exception on /notifications/unread_message_count [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -74,7 +74,49 @@ Traceback (most recent call last):
     _configure_registries({self.registry}, cascade=True)
   File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4214, in _configure_registries
     _do_configure_registries(registries, cascade)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4251, in _do_configure_registries
-    raise e
-sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(user)]'. Original exception was: Class 'sqlalchemy.orm.query.Query' is not mapped
-2025-07-27 17:15:21,133 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4255, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
+    self.do_init()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1656, in do_init
+    self._setup_entity()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1878, in _setup_entity
+    entity = class_mapper(resolved_argument, configure=False)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/base.py", line 565, in class_mapper
+    raise exc.UnmappedClassError(class_)
+sqlalchemy.orm.exc.UnmappedClassError: Class 'sqlalchemy.orm.query.Query' is not mapped
+2025-07-27 17:16:24,403 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]
+2025-07-27 17:19:03,434 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:19:03,604 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:19:03,606 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:19:03,634 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:19:50,302 ERROR: Exception on /auth/register [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/vagrant/app/auth/routes.py", line 112, in register
+    mail.send(msg)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 539, in send
+    with self.connect() as connection:
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 127, in __enter__
+    self.host = self.configure_host()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 152, in configure_host
+    host.login(self.mail.username, self.mail.password)
+  File "/usr/lib/python3.10/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+  File "/usr/lib/python3.10/smtplib.py", line 642, in auth
+    (code, resp) = self.docmd("AUTH", mechanism + " " + response)
+  File "/usr/lib/python3.10/smtplib.py", line 432, in docmd
+    return self.getreply()
+  File "/usr/lib/python3.10/smtplib.py", line 405, in getreply
+    raise SMTPServerDisconnected("Connection unexpectedly closed")
+smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+2025-07-27 17:19:56,102 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]

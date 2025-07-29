@@ -1,98 +1,56 @@
-2025-07-27 17:16:17,493 ERROR: Exception on /notifications/unread_message_count [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+2025-07-27 17:21:46,414 ERROR: Exception on /auth/register [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 915, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1291, in preprocess_request
-    rv = self.ensure_sync(before_func)()
-  File "/vagrant/app/main/routes.py", line 31, in before_request
-    if current_user.is_authenticated:
-  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 318, in __get__
-    obj = instance._get_current_object()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/werkzeug/local.py", line 526, in _get_current_object
-    return get_name(local())
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 25, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/utils.py", line 370, in _get_user
-    current_app.login_manager._load_user()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_login/login_manager.py", line 364, in _load_user
-    user = self._user_callback(user_id)
-  File "/vagrant/app/models.py", line 212, in load_user
-    return db.session.get(User, int(id))
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 1058, in get
-    return self._proxied.get(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3694, in get
-    return self._get_impl(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3873, in _get_impl
-    return db_load_fn(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/loading.py", line 694, in load_on_pk_identity
-    session.execute(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2365, in execute
-    return self._execute_internal(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
-    result = conn.execute(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1415, in execute
-    return meth(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 523, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1629, in _execute_clauseelement
-    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 711, in _compile_w_cache
-    compiled_sql = self._compiler(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 320, in _compiler
-    return dialect.statement_compiler(dialect, self, **kw)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 1446, in __init__
-    Compiled.__init__(self, dialect, statement, **kwargs)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 886, in __init__
-    self.string = self.process(self.statement, **compile_kwargs)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 932, in process
-    return obj._compiler_dispatch(self, **kwargs)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/visitors.py", line 141, in _compiler_dispatch
-    return meth(self, **kw)  # type: ignore  # noqa: E501
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/compiler.py", line 4728, in visit_select
-    compile_state = select_stmt._compile_state_factory(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/sql/base.py", line 687, in create_for_statement
-    return klass.create_for_statement(statement, compiler, **kw)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 447, in create_for_statement
-    return cls._create_orm_context(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 1175, in _create_orm_context
-    _QueryEntity.to_compile_state(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2628, in to_compile_state
-    _MapperEntity(
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 2708, in __init__
-    entity._post_inspect
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 1338, in __get__
-    obj.__dict__[self.__name__] = result = self.fget(obj)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2724, in _post_inspect
-    self._check_configure()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2401, in _check_configure
-    _configure_registries({self.registry}, cascade=True)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4214, in _configure_registries
-    _do_configure_registries(registries, cascade)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 4255, in _do_configure_registries
-    mapper._post_configure_properties()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/mapper.py", line 2418, in _post_configure_properties
-    prop.init()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/interfaces.py", line 589, in init
-    self.do_init()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1656, in do_init
-    self._setup_entity()
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/relationships.py", line 1878, in _setup_entity
-    entity = class_mapper(resolved_argument, configure=False)
-  File "/home/vagrant/.local/lib/python3.10/site-packages/sqlalchemy/orm/base.py", line 565, in class_mapper
-    raise exc.UnmappedClassError(class_)
-sqlalchemy.orm.exc.UnmappedClassError: Class 'sqlalchemy.orm.query.Query' is not mapped
-2025-07-27 17:16:24,403 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]
-2025-07-27 17:19:03,434 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
-2025-07-27 17:19:03,604 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
-2025-07-27 17:19:03,606 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
-2025-07-27 17:19:03,634 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
-2025-07-27 17:19:50,302 ERROR: Exception on /auth/register [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/vagrant/app/auth/routes.py", line 112, in register
+    mail.send(msg)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 540, in send
+    message.send(connection)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 482, in send
+    connection.send(self)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 177, in send
+    self.host.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (451, b"You've exceeded your messaging limits")
+2025-07-27 17:21:51,124 ERROR: Failed to send error email: Connection unexpectedly closed [in /vagrant/app/errors/handlers.py:30]
+2025-07-27 17:22:11,079 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:22:11,127 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:22:11,136 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:22:11,143 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:22:38,839 ERROR: Exception on /auth/register [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/vagrant/app/auth/routes.py", line 112, in register
+    mail.send(msg)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 540, in send
+    message.send(connection)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 482, in send
+    connection.send(self)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask_mail/__init__.py", line 177, in send
+    self.host.sendmail(
+  File "/usr/lib/python3.10/smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (451, b"You've exceeded your messaging limits")
+2025-07-27 17:22:44,161 ERROR: Failed to send error email: Connection unexpectedly closed [in /vagrant/app/errors/handlers.py:30]
+2025-07-27 17:26:31,287 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:26:31,472 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:26:31,512 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:26:31,591 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-27 17:26:59,742 ERROR: Exception on /auth/register [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
 Traceback (most recent call last):
   File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -119,4 +77,57 @@ Traceback (most recent call last):
   File "/usr/lib/python3.10/smtplib.py", line 405, in getreply
     raise SMTPServerDisconnected("Connection unexpectedly closed")
 smtplib.SMTPServerDisconnected: Connection unexpectedly closed
-2025-07-27 17:19:56,102 ERROR: Failed to send error email: (451, b"You've exceeded your messaging limits") [in /vagrant/app/errors/handlers.py:30]
+2025-07-28 09:11:10,382 INFO: Microblog startup [in /home/asaduzzaman-rayhan/microblog/app/__init__.py:82]
+2025-07-28 03:15:00,112 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-28 03:15:00,112 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-28 03:15:00,187 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-28 03:15:00,230 INFO: Microblog startup [in /vagrant/app/__init__.py:82]
+2025-07-28 04:16:16,395 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:16:16,496 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:16:16,566 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:16:16,610 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:16:52,488 ERROR: Exception on /api/users/1 [GET] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/vagrant/app/api/users.py", line 8, in get_user
+    return db.get_or_404(User, id).to_dict()
+  File "/vagrant/app/models.py", line 127, in to_dict
+    'post_count': self.posts_count(),
+  File "/vagrant/app/models.py", line 118, in posts_count
+    return len(self.posts)
+TypeError: object of type 'WriteOnlyCollection' has no len()
+2025-07-28 04:19:19,101 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:19:19,169 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:19:19,217 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:19:19,267 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 04:19:59,044 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:30:57,725 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:30:57,887 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:30:57,981 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:30:57,984 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:41:22,718 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:41:22,786 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:41:22,854 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:41:22,888 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:46:51,722 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:46:51,933 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:46:52,024 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:46:52,026 INFO: Microblog startup [in /vagrant/app/__init__.py:84]
+2025-07-28 05:59:06,312 ERROR: Exception on /api/users [POST] [in /home/vagrant/.local/lib/python3.10/site-packages/flask/app.py:875]
+Traceback (most recent call last):
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/home/vagrant/.local/lib/python3.10/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'api.create_user' did not return a valid response. The function either returned None or ended without a return statement.
